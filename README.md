@@ -1,5 +1,5 @@
 # Flavor Generator
->Olivia A. Baton Rouge, Louisiana, USA
+>Olivia A.
 #### Video Demo: https://youtu.be/uP7ErC_12Wg
 #### Project Description:
 
