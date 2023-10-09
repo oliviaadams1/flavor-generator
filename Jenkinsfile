@@ -8,10 +8,15 @@ pipeline {
                 echo 'Building..'
             }
         }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
         
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying..'
             }
         }
     }
@@ -19,10 +24,12 @@ pipeline {
 // Script //
 node {
     stage('Build') {
-        echo 'Building....'
+        echo 'Building..'
     }
-
+    stage('Test') {
+        echo 'Building..'
+    }
     stage('Deploy') {
-        echo 'Deploying....'
+        echo 'Deploying..'
     }
 }
