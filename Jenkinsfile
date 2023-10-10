@@ -5,25 +5,28 @@ pipeline {
     agent any
 
     // where work happens - stages and steps 
-    // build stage of pipeline 
+    // installation stage of pipeline 
     stages {
-        stage("build") {
+        stage("install dependencies") {
             // execute scripts - commands 
             steps {
                 sh 'npm install'
-                echo 'Building Application..'
+                echo 'Installing Dependencies..'
             }
         }
-        // test stage of pipeline
-        stage("test") {
+        // build stage of pipeline
+        stage("build") {
             steps {
-                echo 'Testing Application..'
+                sh 'npm run build'
+                echo 'Building application..'
             }
         }
-        // deploy stage of pipeline 
-        stage("deploy") {
+        // start stage of pipeline 
+        stage("start") {
             steps {
-                echo 'Deploying Application..'
+                sh 'npm install -g serve'
+                sh 'serve -s build'
+                echo 'Starting Application..'
             }
         }
     }
@@ -32,7 +35,6 @@ pipeline {
         // conditionals 
         // if build successful, run the application 
         success {
-            bat 'start npm start'
             echo 'Build Success'
         }
         // if build fails, log failure 
