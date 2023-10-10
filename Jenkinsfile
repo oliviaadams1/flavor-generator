@@ -32,6 +32,7 @@ pipeline {
         stage("Deploy") {
             steps {
                 sh 'serve -s build &'
+                // open application url 
                 sh 'start http://localhost:3000'
                 echo 'Deploying Application..'
             }
