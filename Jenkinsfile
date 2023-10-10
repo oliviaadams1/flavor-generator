@@ -10,7 +10,6 @@ pipeline {
             // execute scripts - commands 
             steps {
                 sh 'npm install'
-                sh 'npm start'
                 echo 'Building Application..'
             }
         }
@@ -30,6 +29,7 @@ pipeline {
     post {
         // conditionals 
         success {
+            sh 'npm start'
             echo 'Build Success'
         }
         failure {
@@ -37,15 +37,3 @@ pipeline {
         }
     }
 }
-// Script //
-// node {
-//     stage('Build') {
-//         echo 'Building..'
-//     }
-//     stage('Test') {
-//         echo 'Building..'
-//     }
-//     stage('Deploy') {
-//         echo 'Deploying..'
-//     }
-// }
