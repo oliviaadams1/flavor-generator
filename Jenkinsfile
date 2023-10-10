@@ -31,7 +31,7 @@ pipeline {
         // deploy application - if all steps have been successful, deploy new code
         stage("Deploy") {
             steps {
-                sh 'docker run -d -p 3000:3000 --name flavor-generator'
+                sh 'start serve -s build'
                 echo 'Deploying Application..'
             }
         }
