@@ -24,7 +24,7 @@ pipeline {
         // test stage of pipeline - if I had tests to run
         stage("Test") {
             steps {
-                bat 'npm test --passWithNoTests'
+                sh 'npm test'
                 echo 'Testing Application..'
             }
         }
