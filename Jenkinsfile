@@ -18,17 +18,17 @@ pipeline {
         stage("Build") {
             steps {
                 sh 'npm run build'
-                sh 'serve -s build'
                 echo 'Building application..'
             }
         }
         // test stage of pipeline - if I had tests to run
         stage("Test") {
             steps {
+                sh 'npm test'
                 echo 'Testing Application..'
             }
         }
-        // deploy application - if all steps were successful, build app
+        // deploy application - if all steps have been successful, deploy new code
         stage("Deploy") {
             steps {
                 echo 'Deploying Application..'
