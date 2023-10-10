@@ -37,7 +37,7 @@ function Generate() {
 
   return (
     <>
-    <h2 id="gen-title"></h2>
+    <div id="gen-title"></div>
       <p id="generated"></p>
       <br />
       <button className="gen-btn" onClick={handleClick}>
