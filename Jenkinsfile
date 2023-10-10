@@ -24,8 +24,7 @@ pipeline {
         // start stage of pipeline 
         stage("start") {
             steps {
-                sh 'npm install -g serve'
-                sh 'serve -s build'
+                sh 'npm start'
                 echo 'Starting Application..'
             }
         }
