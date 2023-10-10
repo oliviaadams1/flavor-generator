@@ -31,7 +31,8 @@ pipeline {
         // deploy application - if all steps have been successful, deploy new code
         stage("Deploy") {
             steps {
-                sh 'serve -s build'
+                sh 'serve -s build &'
+                sh 'npm start &'
                 sh 'start http://localhost:3000'
                 echo 'Deploying Application..'
             }
