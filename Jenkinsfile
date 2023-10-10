@@ -7,7 +7,7 @@ pipeline {
     // where work happens - stages and steps 
     // installation stage of pipeline 
     stages {
-        stage("install dependencies") {
+        stage("Install Dependencies") {
             // execute scripts - commands 
             steps {
                 sh 'npm install'
@@ -15,28 +15,33 @@ pipeline {
             }
         }
         // build stage of pipeline
-        stage("build") {
+        stage("Build") {
             steps {
-                sh 'npm run build'
+                sh 'npm start &'
                 echo 'Building application..'
             }
         }
-        // start stage of pipeline 
-        stage("start") {
+        // test stage of pipeline - if I had tests to run
+        stage("Test") {
             steps {
-                sh 'npm start &'
-                echo 'Starting Application..'
+                echo 'Testing Application..'
+            }
+        }
+        // deploy application - if all steps were successful, build app
+        stage("Deploy") {
+            steps {
+                echo 'Deploying Application..'
             }
         }
     }
     // after all stages have completed 
     post {
         // conditionals 
-        // if build successful, run the application 
+        // if build successful 
         success {
             echo 'Build Success'
         }
-        // if build fails, log failure 
+        // if build fails
         failure {
             echo 'Build Failed'
         }
