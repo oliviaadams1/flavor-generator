@@ -24,7 +24,7 @@ pipeline {
         // test stage of pipeline - if I had tests to run
         stage("Test") {
             steps {
-                sh 'react-script test --passWithNoTests'
+                sh 'npm test --passWithNoTests'
                 echo 'Testing Application..'
             }
         }
