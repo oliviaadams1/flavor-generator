@@ -32,7 +32,7 @@ pipeline {
         // conditionals 
         // if build successful, run the application 
         success {
-            sh 'nohup npm start &'
+            bat 'npm start'
             echo 'Build Success'
         }
         // if build fails, log failure 
