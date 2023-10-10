@@ -5,6 +5,7 @@ pipeline {
     agent any
 
     // where work happens - stages and steps 
+    // build stage of pipeline 
     stages {
         stage("build") {
             // execute scripts - commands 
@@ -13,12 +14,13 @@ pipeline {
                 echo 'Building Application..'
             }
         }
+        // test stage of pipeline
         stage("test") {
             steps {
                 echo 'Testing Application..'
             }
         }
-        
+        // deploy stage of pipeline 
         stage("deploy") {
             steps {
                 echo 'Deploying Application..'
@@ -28,10 +30,12 @@ pipeline {
     // after all stages have completed 
     post {
         // conditionals 
+        // if build successful, run the application 
         success {
             sh 'npm start'
             echo 'Build Success'
         }
+        // if build fails, log failure 
         failure {
             echo 'Build Failed'
         }
