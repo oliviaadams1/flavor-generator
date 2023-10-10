@@ -1,0 +1,7 @@
+services:
+  app:
+    image: oadams123/flavor-generator
+    command: sh -c "yarn install && npm start"
+    ports:
+      - 3000:3000
+    working_dir: /flavor-generator
