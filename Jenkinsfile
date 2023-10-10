@@ -32,7 +32,7 @@ pipeline {
         // conditionals 
         // if build successful, run the application 
         success {
-            bat 'start npm run start'
+            bat 'start npm start'
             echo 'Build Success'
         }
         // if build fails, log failure 
