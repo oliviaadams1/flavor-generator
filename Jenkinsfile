@@ -41,13 +41,13 @@ pipeline {
     // after all stages have completed 
     post {
         // conditionals 
-        // if build successful 
+        // if pipeline successful 
         success {
-            echo 'Build Success'
+            echo 'Pipeline Success'
         }
-        // if build fails
+        // if any part of the pipeline fails
         failure {
-            echo 'Build Failed'
+            echo 'Pipeline Failed'
         }
     }
 }
